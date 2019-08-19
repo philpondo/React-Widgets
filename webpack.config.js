@@ -5,7 +5,7 @@ module.exports = {
     entry: './frontend/root.jsx',
     output: {
         path: path.resolve(__dirname),
-        filename: './frontend/bundle.js',
+        filename: './dist/bundle.js',
     },
     module: {
         rules: [

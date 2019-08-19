@@ -81,36 +81,118 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/entry.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/root.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./frontend/congrats.jsx":
-/*!*******************************!*\
-  !*** ./frontend/congrats.jsx ***!
-  \*******************************/
+/***/ "./frontend/clock.jsx":
+/*!****************************!*\
+  !*** ./frontend/clock.jsx ***!
+  \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Clock; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-var Congrats = function Congrats() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Congratulations, you did it!");
-};
 
-/* harmony default export */ __webpack_exports__["default"] = (Congrats);
+var Clock =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Clock, _React$Component);
+
+  function Clock(props) {
+    var _this;
+
+    _classCallCheck(this, Clock);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Clock).call(this, props));
+    _this.state = {
+      time: new Date()
+    };
+    _this.tick = _this.tick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Clock, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.tickId = setInterval(this.tick, 1000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.tickId);
+    }
+  }, {
+    key: "tick",
+    value: function tick() {
+      this.setState({
+        time: new Date()
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var hrs = this.state.time.getHours();
+      var mins = this.state.time.getMinutes();
+      var secs = this.state.time.getSeconds();
+      hrs = hrs < 10 ? "0".concat(hrs) : hrs;
+      mins = mins < 10 ? "0".concat(mins) : mins;
+      secs = secs < 10 ? "0".concat(secs) : secs;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "widget"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "title"
+      }, "Clock ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "icon far fa-clock"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "clock"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "time"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "clock-detail"
+      }, "Time: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, hrs, ":", mins, ":", secs, " EDT")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "date"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "clock-detail"
+      }, "Date: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.time.toDateString()))));
+    }
+  }]);
+
+  return Clock;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
 
 /***/ }),
 
-/***/ "./frontend/entry.jsx":
-/*!****************************!*\
-  !*** ./frontend/entry.jsx ***!
-  \****************************/
+/***/ "./frontend/root.jsx":
+/*!***************************!*\
+  !*** ./frontend/root.jsx ***!
+  \***************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -120,14 +202,180 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _congrats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./congrats */ "./frontend/congrats.jsx");
+/* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./clock */ "./frontend/clock.jsx");
+/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./weather */ "./frontend/weather.jsx");
 
 
+
+
+
+var Root = function Root() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "name"
+  }, " Widgets Made With React!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_clock__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_weather__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_congrats__WEBPACK_IMPORTED_MODULE_2__["default"], null), root);
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Root, null), root);
 });
+
+/***/ }),
+
+/***/ "./frontend/weather.jsx":
+/*!******************************!*\
+  !*** ./frontend/weather.jsx ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Weather; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+ // api key: f568b964469e73afb240e0462a6b9239
+
+var toQueryStr = function toQueryStr(apiData) {
+  var parts = [];
+
+  for (var part in apiData) {
+    if (apiData.hasOwnProperty(part)) {
+      parts.push("".concat(encodeURIComponent(part), "=").concat(encodeURIComponent(apiData[part])));
+    }
+  }
+
+  return parts.join('&');
+};
+
+var Weather =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Weather, _React$Component);
+
+  function Weather(props) {
+    var _this;
+
+    _classCallCheck(this, Weather);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Weather).call(this, props));
+    _this.state = {
+      weather: null
+    };
+    _this.getWeather = _this.getWeather.bind(_assertThisInitialized(_this));
+    _this.reset = _this.reset.bind(_assertThisInitialized(_this));
+    return _this;
+  } // componentDidMount() {
+  //     navigator.geolocation.getCurrentPosition(this.getWeather, console.log('fail'));
+  // }
+
+
+  _createClass(Weather, [{
+    key: "reset",
+    value: function reset() {
+      this.setState({
+        weather: null
+      });
+    }
+  }, {
+    key: "getWeather",
+    value: function getWeather() {
+      var _this2 = this;
+
+      var url = 'http://api.openweathermap.org/data/2.5/weather?';
+      var apiKey = 'f568b964469e73afb240e0462a6b9239'; // const position = {
+      //     lat: location.coords.latitude,
+      //     lon: location.coords.longitude
+      // };
+
+      var zip = {
+        zip: document.getElementById('zip').value
+      };
+      url += toQueryStr(zip);
+      url += "&APPID=".concat(apiKey);
+      var XMLReq = new XMLHttpRequest();
+
+      XMLReq.onreadystatechange = function () {
+        if (XMLReq.status === 200 && XMLReq.readyState === XMLHttpRequest.DONE) {
+          var weatherData = JSON.parse(XMLReq.responseText);
+
+          _this2.setState({
+            weather: weatherData
+          });
+        }
+      };
+
+      XMLReq.open('GET', url, true);
+      XMLReq.send();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var data = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+
+      if (this.state.weather) {
+        var weather = this.state.weather;
+        var temperature = (weather.main.temp - 273.15) * 1.8 + 32;
+        data = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "loaded"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, weather.name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, temperature.toFixed(1), "\u2109"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, weather.weather[0].description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "reset",
+          onClick: this.reset
+        }, "Reset"));
+      } else {
+        data = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "loading"
+        }, " Weather is loading... ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "icon-small fa fa-spinner fa-spin"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "zip-input"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          name: "",
+          id: "zip",
+          placeholder: "Enter Zip Code"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "get-weather",
+          onClick: this.getWeather
+        }, "Get Weather")));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "widget"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "title"
+      }, "Weather ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "icon fa fa-cloud-sun-rain"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "weather"
+      }, data));
+    }
+  }]);
+
+  return Weather;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
 
 /***/ }),
 
