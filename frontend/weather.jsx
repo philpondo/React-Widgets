@@ -34,7 +34,9 @@ export default class Weather extends React.Component {
     }
 
     getWeather() {
-        let url = 'http://api.openweathermap.org/data/2.5/weather?';
+        let url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?';
+        // let url = 'http://api.openweathermap.org/data/2.5/weather?';
+
         const apiKey = 'f568b964469e73afb240e0462a6b9239';
 
         // const position = {

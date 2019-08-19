@@ -302,7 +302,8 @@ function (_React$Component) {
     value: function getWeather() {
       var _this2 = this;
 
-      var url = 'http://api.openweathermap.org/data/2.5/weather?';
+      var url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?'; // let url = 'http://api.openweathermap.org/data/2.5/weather?';
+
       var apiKey = 'f568b964469e73afb240e0462a6b9239'; // const position = {
       //     lat: location.coords.latitude,
       //     lon: location.coords.longitude
